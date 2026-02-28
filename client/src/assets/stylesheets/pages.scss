@@ -1,0 +1,127 @@
+@mixin basic-layout($he: none, $wid: none, $bor: none, $brr: none, $bgc: none, $pad: none ) {
+    height: $he;
+    width: $wid;
+    border: 1px solid $bor;
+    border-radius: $brr;
+    background-color: $bgc;
+    padding: $pad;
+}
+
+@mixin flex($jc: none, $ai: none, $dir: none, $gap: none) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $dir;
+    gap: $gap
+}
+
+@mixin pos($pos: relative, $l: none, $r: none, $t: none, $b: none) {
+    position: $pos;
+    left: $l;
+    right: $r;
+    top: $t;
+    bottom: $b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* GENERAL */
+.main_cont {
+    @include basic-layout(fit-content, 100vw,  );
+    @include flex(center, center, Column)
+}
+
+/* SPECIFICS */
+#login_page_main {
+
+    #login_first_sec {
+        @include basic-layout(90vh, 90vw, black, 0.8rem, $pad: 5px );
+        @include flex(center, center, column, 16px);
+        margin-top: 5vh;
+
+        .input_divs {
+            @include basic-layout(fit-content, 90%, );
+            @include flex(center, flex-start, column, 2.5px );
+
+            input {
+                @include basic-layout(52px, 100%, black, $bgc: rgb(224, 219, 219), $pad: 8px );
+                font-size: 1.1rem;
+            }
+        }
+    }
+}
+
+#dashboard_page_main {
+    @include flex(center, center, column, 8px);
+
+    background-color: gray;
+
+    #dashboard_topbar_sec {
+        @include basic-layout(4.5vh, 100vw, $bgc: white );
+        @include pos(sticky, $t: 0.1px );
+        border-bottom: 1px solid black;
+    }
+
+    #dashboard_first_div {
+        @include basic-layout(50px, 100%, black, $bgc: rgb(202, 86, 86));
+        @include pos(sticky, $t: 4.6vh );
+        margin-top: -1%; 
+
+    }
+
+    #dashboard_second_div {
+        @include basic-layout(230px, 90%, black, 0.8rem, )
+    }
+
+    #dashboard_third_div {
+        @include basic-layout(fit-content, 100%, $pad: 5px);
+
+        display: grid;
+        grid-template-rows: 105px 105px;
+        grid-template-columns: 48.5% 48.5%;
+        grid-auto-columns: 120px 120px;
+        grid-auto-rows: 49% 49%;
+        row-gap: 8px; column-gap: 2%;
+        justify-content: center;
+
+        .box_details {
+            @include basic-layout(100%, 100%, none, 0.4rem, rgb(211, 208, 200), $pad: 6px );
+            @include flex(flex-start, flex-start, column, 5px);
+
+            >* {
+                font-size: 1.25rem;
+            }
+
+            button {
+                align-self: flex-end;
+                font-size: 0.8rem;
+            }
+        }
+    }  
+
+    #dashboard_fourth_div {
+        @include basic-layout(fit-content, 100%, $pad: 5px);
+        @include flex(center, center, column, 6px);
+
+        .function_btn {
+            @include basic-layout(55px, 99%, black, 0.4rem, rgb(90, 67, 67) );
+            @include flex(center, center, );
+            font-size: 1.2rem;
+        }
+    }
+
+    #conditional_sec {
+        @include basic-layout(92vh, 100% );
+        @include flex(center, center, column, );
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .main_cont {
+        @include basic-layout(100vh, 100vw,  );
+        @include flex(center, center, Column)
+    }
+}

@@ -1,0 +1,39 @@
+@mixin basic-layout($he: none, $wid: none, $bor: none, $brr: none, $bgc: none, $pad: none ) {
+    height: $he;
+    width: $wid;
+    border: 1px solid $bor;
+    border-radius: $brr;
+    background-color: $bgc;
+    padding: $pad;
+}
+
+@mixin flex($jc: none, $ai: none, $dir: none, $gap: none) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $dir;
+    gap: $gap
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#button_comp_main {
+    @include basic-layout(32px, fit-content, black, 0.4rem, rgb(129, 129, 184), 5px);
+}
+
+#row_comp_main {
+    @include basic-layout(45px, 100%, black, $bgc: rgb(219, 211, 211)  );
+    @include flex(flex-start, center, row, 5px );
+    padding-left: 5px;  padding-right: 5px;
+    overflow: scroll;
+
+    .row_child {
+        @include basic-layout(90%, fit-content, $pad: 4px);
+        @include flex(center, center, );
+        text-align: justify;  font-size: 1rem;  
+        border-right: 1px solid black
+    }
+}

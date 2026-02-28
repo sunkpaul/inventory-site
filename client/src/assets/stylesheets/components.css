@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#button_comp_main {
+  height: 32px;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 0.4rem;
+  background-color: rgb(129, 129, 184);
+  padding: 5px;
+}
+
+#row_comp_main {
+  height: 45px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: none;
+  background-color: rgb(219, 211, 211);
+  padding: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow: scroll;
+}
+#row_comp_main .row_child {
+  height: 90%;
+  width: fit-content;
+  border: 1px solid none;
+  border-radius: none;
+  background-color: none;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: none;
+  gap: none;
+  text-align: justify;
+  font-size: 1rem;
+  border-right: 1px solid black;
+}
+
+/*# sourceMappingURL=components.css.map */

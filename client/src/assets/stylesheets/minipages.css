@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#add_mini_main {
+  height: 85%;
+  width: 95%;
+  border: 1px solid black;
+  border-radius: none;
+  background-color: none;
+  padding: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+}
+#add_mini_main .input_div {
+  height: fit-content;
+  width: 90%;
+  border: 1px solid none;
+  border-radius: none;
+  background-color: none;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+}
+#add_mini_main .input_div input {
+  height: 58px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 0.4rem;
+  background-color: none;
+  padding: 8px;
+  font-size: 1.2rem;
+}
+#add_mini_main #managers_cond {
+  height: 45px;
+  width: 85%;
+  border: 1px solid none;
+  border-radius: none;
+  background-color: rgb(189, 182, 169);
+  padding: 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 20%;
+}
+
+/*# sourceMappingURL=minipages.css.map */
