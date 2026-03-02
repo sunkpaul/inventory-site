@@ -15,6 +15,14 @@
     gap: $gap
 }
 
+@mixin pos($pos: relative, $l: none, $r: none, $t: none, $b: none) {
+    position: $pos;
+    left: $l;
+    right: $r;
+    top: $t;
+    bottom: $b;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,13 +35,98 @@
 #row_comp_main {
     @include basic-layout(45px, 100%, black, $bgc: rgb(219, 211, 211)  );
     @include flex(flex-start, center, row, 5px );
-    padding-left: 5px;  padding-right: 5px;
     overflow: scroll;
 
     .row_child {
         @include basic-layout(90%, fit-content, $pad: 4px);
-        @include flex(center, center, );
-        text-align: justify;  font-size: 1rem;  
+        @include flex(flex-start, center, );
+        text-align: justify;  font-size: 1.1rem;  
         border-right: 1px solid black
     }
+
+    >:first-child {
+        padding: none;
+        justify-content: center;
+    }
+}
+
+#input_comp_main {
+    @include basic-layout(fit-content, 80%, );
+    @include flex(center, flex-start, column, 2px);
+
+    label {
+        margin-left: 4px;
+    }
+
+    input {
+        @include basic-layout(55px, 100%, black, 0.4rem, $pad: 8px  );
+        font-size: 1.2rem;
+    }
+}
+
+#dropdown_comp_main {
+    @include basic-layout(fit-content, 140px, $pad: 8px );
+    @include flex(center, center, column, 5px );
+    position: relative;
+
+    #header {
+        @include basic-layout(35px, 90%, black, 0.2rem, $pad: 4px, $bgc: rgb(206, 198, 198));
+        @include flex(center, center, );
+        font-size: 1.2rem;
+    }
+
+    #dropdown_box {
+        @include basic-layout(fit-content, 100%, black, 0.4rem, white, 8px);
+        @include flex(center, flex-start, column, 2px);
+        @include pos(absolute, $t: 45px);
+
+        .items_p {
+            @include basic-layout(36px, 100%, $bgc: rgb(236, 228, 228), $pad: 8px );
+            @include flex(flex-start, center,); 
+            font-size: 1.2rem;
+        }
+        
+    }
+
+}
+
+#selectdiv_comp_main {
+    @include basic-layout(fit-content, 92%, none, 0.6rem, rgb(191, 191, 196), );
+    @include flex(center, center, row, 16px);
+    padding-right: 8px;  padding-left: 8px;
+    box-shadow: 1px 2px 2px 1px black;
+
+    #first_div {
+        @include basic-layout(62px, 72vw, none, 0.4rem, rgb(191, 191, 196), 0px );
+        @include flex(flex-start, center, row, 2px);
+
+        >p {
+            @include flex(flex-start, center, );
+            font-size: 1.1rem;
+            height: 30px;
+        }
+
+        >:first-child {
+            border-right: 1px solid black;
+            width: 10%; height: 100%; 
+        } 
+
+        >div {
+            width: 80%;
+            padding-left: 8px;  font-size: 1rem;
+            
+            >:last-child {
+                font-size: 0.9rem;
+                margin-left: 6%;
+                margin-top: 1.5%;
+            }
+        }
+        
+    }
+
+    #second_div {
+        @include basic-layout(30px, 30px, black, 50%, );
+        border: 2px solid black
+    }
+
 }

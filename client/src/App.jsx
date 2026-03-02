@@ -1,6 +1,7 @@
 import React from "react"
 import './assets/stylesheets/pages.css'
 import './assets/stylesheets/minipages.css'
+import './assets/stylesheets/components.css'
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 

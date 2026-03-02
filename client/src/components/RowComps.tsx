@@ -3,7 +3,7 @@ import '../assets/stylesheets/components.css'
 
 interface childTy {
     txt: String,
-    spacing?: String
+    wid?: String
 }
 
 function RowComponent(props) {
@@ -19,9 +19,9 @@ function RowComponent(props) {
     }
 
     const subStyle = {
-        borderRight2: props.bor ,
+        borderRight: props.bor ,
         height: props.he2 ,
-        fontWight: props.fontWeight2 
+        fontWeight: props.fontWeight2 
     }
 
 
@@ -30,7 +30,7 @@ function RowComponent(props) {
         return(
             <p 
                 key={id} className="row_child" 
-                style={{paddingRight: `${it.spacing}`, ...subStyle}}
+                style={{width: `${it.wid}`, ...subStyle}}
             >
                 {it.txt}
             </p>

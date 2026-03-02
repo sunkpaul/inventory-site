@@ -65,7 +65,7 @@
   background-color: gray;
 }
 #dashboard_page_main #dashboard_topbar_sec {
-  height: 4.5vh;
+  height: 4vh;
   width: 100vw;
   border: 1px solid none;
   border-radius: none;
@@ -164,17 +164,18 @@
   font-size: 1.2rem;
 }
 #dashboard_page_main #conditional_sec {
-  height: 92vh;
+  height: fit-content;
   width: 100%;
   border: 1px solid none;
   border-radius: none;
-  background-color: none;
+  background-color: white;
   padding: none;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: none;
+  margin-top: -8px;
 }
 
 @media screen and (min-width: 600px) {

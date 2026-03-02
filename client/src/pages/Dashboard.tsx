@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 import ButtonComp from "../components/ButtonComp";
 import AddMiniPage from "../mini-pages/AddMiniPage";
+
+import TransferMiniPage from "../mini-pages/TransfersMiniPage";
 
 function DashboardPage(){
     const navigate = useNavigate();
@@ -16,8 +18,14 @@ function DashboardPage(){
 
         switch(lnkType) {
             case('inpage'):
-                const lnk: String = "add_" + uLnk.toLowerCase();
+                const lnk: String = "add-" + uLnk.toLowerCase();
                 setSearchParams(p => ({...p, page: lnk }));
+            break;
+
+            case('inpagefn'):
+                const lnk_fn: String = "fn-" + uLnk.toLowerCase();
+                navigate(`/?page=${lnk_fn}`)
+                //setSearchParams(p => ({...p, page: lnk_fn }));
             break;
 
             case('outpage'):
@@ -67,8 +75,9 @@ function DashboardPage(){
 
     const APPENDFNBUTTONS = functionButtons.map((it, id) => {
         return(
-            <div key={id} className="function_btn">
+            <div key={id} className="function_btn" onClick={e => handleBtns(it.txt, 'inpagefn') }>
                 {it.txt}
+                
             </div>
         )
     })
@@ -80,7 +89,7 @@ function DashboardPage(){
 
             </section>
 
-            { !view?.includes('add') &&
+            { !view?.includes('add') && !view?.includes('fn') &&
               <>
                 <section id="dashboard_first_div">
                     <h2>Welcome mng name</h2>
@@ -101,19 +110,27 @@ function DashboardPage(){
                         APPENDFNBUTTONS
                     }
                 </section>
+
+                <div style={{height: '16px'}}>
+
+                </div>
               </>
 
             }
 
-            { view?.includes('add') &&
+            { view?.includes('add')  &&
               <section id="conditional_sec">
                 <AddMiniPage />
+                
               </section>
             }
 
-            <div style={{height: '16px'}}>
+            { view?.includes('fn')  &&
+              <section id="conditional_sec">
+                {view.includes('transfers') && < TransferMiniPage /> }
 
-            </div>
+              </section>
+            }
 
 
         </main>

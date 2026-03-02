@@ -21,7 +21,7 @@ function ButtonComp(props) {
  /* RETURN */
     return(
         <button id="button_comp_main" style={{...mainStyle}} onClick={
-            e => {defFN(e); props.fn1 && props.fn1(e.target) }
+            e => {defFN(e); props.fn1 && props.fn1(e.target); props.fn2 && props.fn2() }
         }>
             {props.txt || "Click Me"}
         </button>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
+import InputComp from "../components/InputComp";
 import ButtonComp from "../components/ButtonComp";
 
 interface InpElementTy {
@@ -45,15 +46,13 @@ function AddMiniPage() {
         const useId = it.split(' ').join('_').toLowerCase()
 
         return(
-            <div key={id} className="input_div">
-                <label>{it}</label>
+            <InputComp 
+                label = {it}
+                value = {inputValues[useId]}
+                id = {useId}
+                fn1 = {handleInputs}
+            />
 
-                <input 
-                    id={useId}
-                    onChange={e => handleInputs(e.target)}
-                    value={inputValues[useId]}
-                />
-            </div>
         )
     })      
 

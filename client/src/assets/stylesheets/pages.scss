@@ -60,7 +60,7 @@
     background-color: gray;
 
     #dashboard_topbar_sec {
-        @include basic-layout(4.5vh, 100vw, $bgc: white );
+        @include basic-layout(4vh, 100vw, $bgc: white );
         @include pos(sticky, $t: 0.1px );
         border-bottom: 1px solid black;
     }
@@ -114,8 +114,9 @@
     }
 
     #conditional_sec {
-        @include basic-layout(92vh, 100% );
+        @include basic-layout(fit-content, 100%, $bgc: white );
         @include flex(center, center, column, );
+        margin-top: -8px;
     }
 }
 

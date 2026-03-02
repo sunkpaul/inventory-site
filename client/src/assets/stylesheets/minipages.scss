@@ -15,6 +15,14 @@
     gap: $gap
 }
 
+@mixin pos($pos: relative, $l: none, $r: none, $t: none, $b: none) {
+    position: $pos;
+    left: $l;
+    right: $r;
+    top: $t;
+    bottom: $b;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -38,5 +46,71 @@
     #managers_cond {
         @include basic-layout(45px, 85%, none, $pad: 6px, $bgc: rgb(189, 182, 169) );
         @include flex(flex-start, center, row, 20%)
+    }
+}
+
+#transfer_mini_main {
+    @include basic-layout(fit-content, 100%,  );
+    @include flex(flex-start, center, column, 6px );
+    @include pos(absolute, $t: 4.6vh); 
+
+    >#first_div {
+        @include basic-layout(98px, 99%,$brr: 0.2rem, $bgc: rgb(248, 241, 228)  );
+        @include flex(flex-start, center, column, 4px);
+        padding-bottom: 5px;
+
+        #init {
+            @include basic-layout(50px, 99%, $pad: 8px );
+            @include flex(space-around, center, row, );
+            border-bottom: 1px solid black; border-radius: 0.2rem;
+
+        }
+
+        #div2 {
+            @include basic-layout(40px, 100vw, );
+            @include flex(flex-end, center, row, 16px );
+            font-size: 1.2rem;
+            padding-right: 16px;
+
+            >p {
+                @include basic-layout($pad: 4px, $bgc: white)
+            }
+        }
+    }
+
+    #second_div {
+        @include basic-layout(fit-content, 100%, $pad: 8px,  );
+        @include flex(center, center, column, 8px);
+
+        .select_div {
+            width: fit-content;
+        }
+        
+    }
+
+    #inputs_main_cont {
+        @include basic-layout(92.5vh, 100%, $bgc: white );
+        @include flex(flex-start, center, column, 5px);
+
+        #desc_div {
+            @include basic-layout(80px, 92%, none, 0.6rem, rgb(131, 125, 125), 12px);
+            font-size: 1.05rem;
+
+            >:nth-child(2) {
+                margin-top: 4px;
+                margin-left: 16px;
+            }
+        }
+
+        #inputs_div {
+            @include basic-layout(45px, 90%, );
+            @include flex(center, center, row, 5px);
+
+            input {
+                text-align: center;
+                font-size: 1.1rem;
+                border-radius: 0px;
+            }
+        }
     }
 }
