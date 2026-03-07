@@ -23,12 +23,13 @@ function TransferMiniPage() {
     const [selected, setSelected] = useState<itemDataTy[]>([]);
     const [searchParams, setSearchParams] = useSearchParams();
     const [btnTxt, setBtnTxt] = useState<String>('Continue');
-    const [transferData, setTransferData] = useState({})
+    const [transferData, setTransferData] = useState({});
+    const [inputValues, setInputValues] = useState({});
     const [parties, setParties] = useState({
         reciever: '',
         sender: ''
     });
-    const view = searchParams.get('view')
+    const view = searchParams.get('view');
     const page: string = searchParams.get('page') || ''
 
 
@@ -91,10 +92,7 @@ function TransferMiniPage() {
         {product: 'Product Four', quantity: 500, id: 'prd-004'},
         {product: 'Product Five', quantity: 10000, id: 'prd-005'},
     ]);
-    
-    const [inputValues, setInputValues] = useState({})
 
-    console.log('Some', inputsData, '\n', 'hold', inputValues)
 
 
  /* APPEND */
