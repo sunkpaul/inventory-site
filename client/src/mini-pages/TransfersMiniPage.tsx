@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, use } from "react";
 import { useSearchParams, useLocation, useNavigate } from "react-router-dom";
 
 import DropDownComp from "../components/DropDownComp";
@@ -9,7 +9,7 @@ import InputComp from "../components/InputComp";
 
 interface itemDataTy {
     product: String,
-    id: String,
+    id: string,
     quantity?: Number
 }
 
@@ -57,6 +57,17 @@ function TransferMiniPage() {
                 useArr.push(itemData[it])
             });
 
+            console.log('Clicked', useArr)
+
+            setInputValues(p => (
+                useArr.reduce(
+                    (acc, cu) => {
+                        acc[cu.id] = ''
+                        return acc
+                    }, {}
+                )
+            )) 
+
             navigate(
                 location.pathname + location.search + '&view=inputs', 
                 {state: {items: useArr} }
@@ -80,14 +91,10 @@ function TransferMiniPage() {
         {product: 'Product Four', quantity: 500, id: 'prd-004'},
         {product: 'Product Five', quantity: 10000, id: 'prd-005'},
     ]);
-    const [inputValues, setInputValues] = useState(
-        [...inputsData].reduce(
-            (acc, current) => {
-                acc[current.id] = ''
-                return acc;
-            }, {}
-        )
-    )
+    
+    const [inputValues, setInputValues] = useState({})
+
+    console.log('Some', inputsData, '\n', 'hold', inputValues)
 
 
  /* APPEND */
@@ -140,7 +147,8 @@ function TransferMiniPage() {
 
  /* USEEFFECT */
     useEffect(() => {
-    }, [searchParams])
+
+    }, [])
 
 
 
