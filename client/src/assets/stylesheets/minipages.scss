@@ -30,11 +30,13 @@
 
 
 #add_mini_main {
-    @include basic-layout(85%, 95%, black);
-    @include flex(center, center, column, 6px );
+    @include basic-layout(80vh, 95%, black, 0.5rem);
+    @include flex(center, center, column, 16px );
+    position: relative;
+    margin-top: 10vh;
     
-    .input_div {
-        @include basic-layout(fit-content, 90%, none, $pad: 6px );
+    .input_divs {
+        @include basic-layout(fit-content, fit-content, $pad: 6px );
         @include flex(center, flex-start, column, 4px );
 
         input {
@@ -48,6 +50,12 @@
         @include flex(flex-start, center, row, 20%)
     }
 }
+
+/* GENERAL */
+.input_divs {
+    @include basic-layout(fit-content, fit-content, )
+}
+
 
 #transfer_mini_main {
     @include basic-layout(fit-content, 100%,  );
@@ -110,6 +118,115 @@
                 text-align: center;
                 font-size: 1.1rem;
                 border-radius: 0px;
+            }
+        }
+    }
+}
+
+#updateprice_mini_main {
+    @include basic-layout(96vh, 100%, $pad: 6px );
+    @include flex(flex-start, center, column, 6px);
+
+    #updateprice_first_sec {
+        @include basic-layout(90px, 100%, none, 0.4rem );
+        @include flex(flex-start, center, column, 2px);
+        border-bottom: 1px solid black;
+    }
+
+    .select_divs {
+        @include basic-layout(fit-content, 100%,);
+        @include flex(center, center, row, );
+    }
+
+    #updateprice_second_sec {
+        @include basic-layout(fit-content, 100%,);
+        @include flex(center, center, column, 2px);
+
+        >:first-child {
+            
+        }
+
+        >:nth-child(2) {
+            margin-top: 5px
+        }
+
+        .input_divs {
+            @include basic-layout(fit-content, 100%, );
+            @include flex(center, center, row, 5px );
+
+            input {
+                text-align: center;
+                border-radius: 0.2rem;
+            }
+        }
+    }
+}
+
+#cash_mini_main {
+    @include basic-layout(96vh, 100%, );
+    @include flex(flex-start, center, column, 5px);
+    padding-top: 10vh;
+
+    #cash_first_div {
+        @include basic-layout(fit-content, 94%, black, 0.2rem, $pad: 4);
+        @include flex(center, center, column, 12px);
+        padding-top: 24px;  padding-bottom: 24px;
+        
+
+        .item_divs {
+
+            @include basic-layout(fit-content, 90%,);
+            @include flex(center, center, row );
+
+            label {
+                font-weight: bolder;
+                font-size: 1.1rem;
+            }
+        }
+
+        #totol_div {
+            @include basic-layout(50px, 80%, none, 0.1rem, $pad: 8px );
+            @include flex(flex-start, center, Row, 5px);
+            margin-top: 8px;  border-bottom: 1px solid black;
+
+            p {
+                width: 100%;
+                font-size: 1.4rem;
+                text-align: center;
+            }
+        }
+    }
+
+    
+
+}
+
+#date_mini_main {
+    @include  basic-layout(fit-content, 100%,);
+
+    #date_first_sec{
+
+    }
+    
+    #date_second_sec{
+        @include basic-layout(fit-content, 100%, $pad: 4px );
+        @include flex(center, center, column, 8px);
+
+        .spacer {
+            @include basic-layout(fit-content, fit-content, black, $pad: 8px, )
+        }
+
+        .mkt_divs {
+            @include basic-layout(fit-content, fit-content, )
+        }
+
+        #current_date {
+            @include basic-layout(60px, 90%, black, $bgc: grey, $pad: 8px  );
+            box-shadow: 2px 2px 2px black;
+            padding-left: 8px;
+
+            p {
+                margin-left: 16px;
             }
         }
     }

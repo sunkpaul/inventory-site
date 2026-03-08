@@ -28,6 +28,16 @@
     margin: 0;
 }
 
+#header_comp_main {
+    @include basic-layout(80px, 90%, none, 0.2rem, rgb(131, 125, 125), 12px);
+    font-size: 1.05rem;
+
+    >:nth-child(2) {
+        margin-top: 4px;
+        margin-left: 16px;
+    }
+}
+
 #button_comp_main {
     @include basic-layout(32px, fit-content, black, 0.4rem, rgb(129, 129, 184), 5px);
 }

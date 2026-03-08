@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useRef, use } from "react";
 import { useSearchParams, useLocation, useNavigate } from "react-router-dom";
 
-import DropDownComp from "../components/DropDownComp";
 import SelectDivComp from "../components/SelectDivComp";
+import DropDownComp from "../components/DropDownComp";
+import HeaderComp from "../components/HeaderComp";
 import RowComponent from "../components/RowComps";
 import ButtonComp from "../components/ButtonComp";
 import InputComp from "../components/InputComp";
@@ -204,13 +205,13 @@ function TransferMiniPage() {
               </>
           }
 
+
           { view == 'inputs' &&
             <div id="inputs_main_cont">
-                <div id="desc_div">
-                    <h2>TRANSFERS</h2>
-                    <div>FROM: Shop One TO: Shop Three</div>
-
-                </div>
+                <HeaderComp 
+                    header = "TRANSFERS"
+                    subtxt = "FROM: Shop One TO: Shop Three"
+                />
                 {
                     APPENDINPUTSITEMS
                 }

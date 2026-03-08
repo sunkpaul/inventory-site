@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 
 import InputComp from "../components/InputComp";
 import ButtonComp from "../components/ButtonComp";
+import HeaderComp from '../components/HeaderComp'
 
 interface InpElementTy {
     managers: String[],
@@ -46,12 +47,16 @@ function AddMiniPage() {
         const useId = it.split(' ').join('_').toLowerCase()
 
         return(
-            <InputComp 
-                label = {it}
-                value = {inputValues[useId]}
-                id = {useId}
-                fn1 = {handleInputs}
-            />
+            <div key={id} className="input_divs">
+                <InputComp 
+                    label = {it}
+                    he = '60px'
+                    wid = '320px'
+                    value = {inputValues[useId]}
+                    id = {useId}
+                    fn1 = {handleInputs}
+                />
+            </div>
 
         )
     })      
@@ -59,31 +64,40 @@ function AddMiniPage() {
 
  /* RETURN */
     return(
-        <>
-         <h2>Add Managers</h2>
-         <section id="add_mini_main">
+     <>
+        <HeaderComp 
+            he = '55px'
+            wid = '60%'
+            header = 'Add Manager'
+            pos = 'absolute'
+            t = '6.5%'
+            l = '5.5%'
+            tal = 'center'
+        />
+
+        <section id="add_mini_main">
             {
                 APPENDINPUTELEMENTS
             }
 
             { page == 'managers' &&
-              <>
+                <>
                 <div id="managers_cond">
                     <p>Upload Picture</p>
                     <ButtonComp />
                 </div>
-              </>
+                </>
 
             }
 
             <ButtonComp 
                 wid = '70%'
-                he = '40px'
+                he = '45px'
                 mt = '10px'
             />
-         </section>       
-        </>
 
+        </section>       
+     </>
     )
 }
 

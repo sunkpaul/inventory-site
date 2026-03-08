@@ -5,6 +5,9 @@ import ButtonComp from "../components/ButtonComp";
 import AddMiniPage from "../mini-pages/AddMiniPage";
 
 import TransferMiniPage from "../mini-pages/TransfersMiniPage";
+import UpdatePriceMini from "../mini-pages/UpdatePriceMiniPage";
+import CashMiniPage from "../mini-pages/CashMiniPage";
+import DateMiniPage from "../mini-pages/DateMiniPage";
 
 function DashboardPage(){
     const navigate = useNavigate();
@@ -24,6 +27,7 @@ function DashboardPage(){
 
             case('inpagefn'):
                 const lnk_fn: String = "fn-" + uLnk.toLowerCase();
+                console.log('clicked:', uLnk)
                 navigate(`/?page=${lnk_fn}`)
                 //setSearchParams(p => ({...p, page: lnk_fn }));
             break;
@@ -31,6 +35,8 @@ function DashboardPage(){
             case('outpage'):
                 const navTo = uLnk.toLowerCase()
                 //navigate('/' + navTo)
+
+                console.log('me happened')
             break;
 
             default:
@@ -50,10 +56,10 @@ function DashboardPage(){
     const [functionButtons, setFunctionButtons] = useState([
         {txt: "Transfers"},
         {txt: "Price Update"},
-        {txt: "Evaluate"},
-        {txt: "Orders"},
         {txt: "Cash"},
         {txt: "Date"},
+        {txt: "Evaluate"},
+
     ])
 
  /* APPEND */
@@ -62,6 +68,7 @@ function DashboardPage(){
             <div key={id} className="box_details" onClick={e => handleBtns(it.mainTxt, "outpage")}>
                 <h5>{it.mainTxt}</h5>
                 <p>{it.secTxt}</p>
+                
                 <ButtonComp 
                     txt = {it.btnTxt} 
                     wid = "40%"
@@ -128,6 +135,9 @@ function DashboardPage(){
             { view?.includes('fn')  &&
               <section id="conditional_sec">
                 {view.includes('transfers') && < TransferMiniPage /> }
+                {view.includes('price update') && <UpdatePriceMini />  }
+                {view.includes('cash') && <CashMiniPage />  } 
+                {view.includes('date') && <DateMiniPage />}
 
               </section>
             }

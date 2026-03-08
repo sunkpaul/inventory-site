@@ -19,18 +19,25 @@ function SelectDivComp(props) {
     }
 
     const mainStyle = {
-        width: props.wid
+        width: props.wid,
+        height: props.he,
+        borderRadius: props.brr
+    }
+
+    const subTxtStyle = {
+        fontSize: props.sfs,
+    
     }
 
  /* RETURN */
     return(
-        <div id="selectdiv_comp_main" style={mainStyle}> 
-            <div id="first_div">
+        <div id="selectdiv_comp_main" style={{...mainStyle }}> 
+            <div id="first_div" >
                 <p>{props.serial}</p>
 
                 <div>
                     <h3>{props.main}</h3>
-                    <p>{props.sub}</p>
+                    <p style={{...subTxtStyle}}>{props.sub}</p>
                 </div>
 
             </div>

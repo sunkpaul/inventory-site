@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function DropDownComp(props) {
  /* VARIABLES */
-    const [headerTxt, setHeaderTxt] = useState<String>('--Select')
+    const [headerTxt, setHeaderTxt] = useState<String>(props.ini || '--Select')
     const [isDropdown, setIsDropDown] = useState<Boolean>(false)
     const dropdownFor = props.for
 
@@ -40,6 +40,7 @@ function DropDownComp(props) {
     const mainStyle = {
         height: props.he,
         width: props.he,
+        alignSelf: props.ai
     }
 
     const subStyle = {

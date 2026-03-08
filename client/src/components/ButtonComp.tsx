@@ -14,13 +14,15 @@ function ButtonComp(props) {
         height: props.he,
         width: props.wid,
         borderRadius: props.brr,
-        marginTop: props.mt
-        
+        marginTop: props.mt,
+        marginRight: props.mr,
+        alignSelf: props.ai,
+        backgroundColor: props.bgc
     }
 
  /* RETURN */
     return(
-        <button id="button_comp_main" style={{...mainStyle}} onClick={
+        <button id="button_comp_main" style={{...mainStyle, }} onClick={
             e => {defFN(e); props.fn1 && props.fn1(e.target); props.fn2 && props.fn2() }
         }>
             {props.txt || "Click Me"}
